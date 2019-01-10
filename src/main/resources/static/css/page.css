@@ -1,0 +1,32 @@
+html {
+    background-color: #0d0d1A;
+    color: #35B803;
+}
+
+.calendar-grid {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1060px;
+}
+
+.day-cell {
+    width: 200px;
+    height: 200px;
+    border: 1px solid #35B803;
+    margin: 5px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.day-cell-number {
+    font-size: xx-large;
+}
+
+.day-cell-label {
+    max-width: 150px;
+    height: 20px;
+    text-align: center;
+}

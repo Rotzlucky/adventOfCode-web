@@ -2,4 +2,13 @@
 
 <h1>{{title}}</h1>
 
+<div class="calendar-grid">
+    {{#days}}
+        <div class="day-cell">
+            <div class="day-cell-number">Day {{number}}</div>
+            <div class="day-cell-label">{{title}}</div>
+        </div>
+    {{/days}}
+</div>
+
 {{> footer}}
