@@ -1,11 +1,12 @@
 {{> header}}
 
-<h1>{{title}}</h1>
+<h1>{{i18n.title}}</h1>
+<h2>{{i18n.subTitle}}</h2>
 
 <div class="calendar-grid">
     {{#days}}
         <div class="day-cell">
-            <div class="day-cell-number">Day {{number}}</div>
+            <div class="day-cell-number">{{i18n.day}} {{number}}</div>
             <div class="day-cell-label">{{title}}</div>
         </div>
     {{/days}}
