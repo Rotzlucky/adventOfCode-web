@@ -1,17 +1,20 @@
 package com.msteffen.aocweb.solutions
 
-class Day(val number: Int, val title: String) {
+abstract class Day(val number: Int, val title: String) {
+
+    abstract fun solvePart1()
+
+    abstract fun solvePart2()
+
     companion object {
+        private val days: ArrayList<Day> = ArrayList()
+
+        fun addDay(day: Day) {
+            days.add(day)
+        }
+
         fun getAvailableDays(): List<Day> {
-            return listOf(
-                    Day(1, "Chronal Calibration"),
-                    Day(2, "Inventory Management System"),
-                    Day(3, "No Matter How You Slice It"),
-                    Day(4, "Repose Record"),
-                    Day(5, "Alchemical Reduction"),
-                    Day(6, "Chronal Coordinates"),
-                    Day(7, "The Sum of Its Parts")
-            )
+            return days
         }
     }
 }
