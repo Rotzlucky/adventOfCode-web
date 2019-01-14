@@ -9,6 +9,11 @@ html {
     max-width: 1060px;
 }
 
+.day-cell-link {
+    color: #35B803;
+    text-decoration:none;
+}
+
 .day-cell {
     width: 200px;
     height: 200px;

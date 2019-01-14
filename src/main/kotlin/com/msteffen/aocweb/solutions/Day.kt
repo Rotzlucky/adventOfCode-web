@@ -32,5 +32,9 @@ abstract class Day(val number: Int, val title: String) {
         fun getAvailableDays(): List<Day> {
             return days
         }
+
+        fun getDay(number: Int): Day? {
+            return days.find { it.number == number }
+        }
     }
 }

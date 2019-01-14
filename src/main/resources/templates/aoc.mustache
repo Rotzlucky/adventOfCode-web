@@ -5,10 +5,12 @@
 
 <div class="calendar-grid">
     {{#days}}
-        <div class="day-cell">
-            <div class="day-cell-number">{{i18n.day}} {{number}}</div>
-            <div class="day-cell-label">{{title}}</div>
-        </div>
+        <a href="/2018/day/{{number}}" class="day-cell-link">
+            <div class="day-cell">
+                <div class="day-cell-number">{{i18n.day}} {{number}}</div>
+                <div class="day-cell-label">{{title}}</div>
+            </div>
+        </a>
     {{/days}}
 </div>
 

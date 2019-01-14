@@ -1,5 +1,7 @@
 package com.msteffen.aocweb
 
+import com.msteffen.aocweb.solutions.Day
+import com.msteffen.aocweb.solutions.year2018.Day1
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.AfterAll
 import org.junit.jupiter.api.BeforeAll
@@ -19,11 +21,11 @@ class IntegrationTests(@Autowired val restTemplate: TestRestTemplate) {
     @BeforeAll
     fun setup() {
         println(">> Setup")
+        Day.addDay(Day1(1, "Chronal Calibration"))
     }
 
     @Test
     fun `Assert aoc page title, content and status code`() {
-        println(">> Assert blog page title, content and status code")
         val entity = restTemplate.getForEntity<String>("/")
         assertThat(entity.statusCode).isEqualTo(HttpStatus.OK)
         assertThat(entity.body).contains("<h1>Advent of Code</h1>", "calendar-grid")
@@ -31,7 +33,15 @@ class IntegrationTests(@Autowired val restTemplate: TestRestTemplate) {
 
     @Test
     fun `Assert Day1 page title, content and status code`() {
-        println(">> TODO")
+        val entity = restTemplate.getForEntity<String>("/2018/day/1")
+        assertThat(entity.statusCode).isEqualTo(HttpStatus.OK)
+        assertThat(entity.body).contains("Chronal Calibration")
+    }
+
+    @Test
+    fun `Assert non existing day returns 404`() {
+        val entity = restTemplate.getForEntity<String>("/2018/day/32")
+        assertThat(entity.statusCode).isEqualTo(HttpStatus.NOT_FOUND)
     }
 
     @AfterAll

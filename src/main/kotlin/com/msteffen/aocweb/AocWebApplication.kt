@@ -8,7 +8,7 @@ import org.springframework.boot.runApplication
 
 @SpringBootApplication
 @EnableConfigurationProperties(AocProperties::class)
-class AocWebApplication {}
+class AocWebApplication
 
 fun main(args: Array<String>) {
     runApplication<AocWebApplication>(*args)
