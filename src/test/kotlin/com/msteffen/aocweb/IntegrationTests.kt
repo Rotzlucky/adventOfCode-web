@@ -47,6 +47,7 @@ class IntegrationTests(@Autowired val restTemplate: TestRestTemplate) {
     @AfterAll
     fun teardown() {
         println(">> Tear down")
+        Day.removeAllDays()
     }
 
 }

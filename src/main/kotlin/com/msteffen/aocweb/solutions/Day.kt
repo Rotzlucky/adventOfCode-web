@@ -36,5 +36,9 @@ abstract class Day(val number: Int, val title: String) {
         fun getDay(number: Int): Day? {
             return days.find { it.number == number }
         }
+
+        fun removeAllDays() {
+            days.clear()
+        }
     }
 }
