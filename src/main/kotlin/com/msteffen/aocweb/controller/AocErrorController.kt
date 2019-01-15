@@ -18,7 +18,7 @@ class AocErrorController(private val properties: AocProperties) : ErrorControlle
         model["cssPath"] = properties.cssPath
 
         val statusCode = request.getAttribute("javax.servlet.error.status_code") as Int
-        return "/error/" + statusCode.toString()
+        return errorPath + "/" + statusCode.toString()
     }
 
 

@@ -2,7 +2,7 @@ package com.msteffen.aocweb.solutions.year2018
 
 import com.msteffen.aocweb.solutions.Day
 
-class Day1(number: Int, title: String) : Day(number, title) {
+class Day1(number: Int = 1, title: String = "Chronal Calibration") : Day(number, title) {
     override fun solvePart1(): String {
         return getInputs().fold(0) { total, next -> total + next.toInt() }.toString()
     }
