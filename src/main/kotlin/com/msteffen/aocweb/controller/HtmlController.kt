@@ -27,6 +27,7 @@ class HtmlController(private val properties: AocProperties) {
 
         model["i18n"] = properties.i18n
         model["cssPath"] = properties.cssPath
+        model["adventOfCodeBaseUrl"] = properties.adventOfCodeBaseUrl
         model["day"] = day
 
         return "day"
