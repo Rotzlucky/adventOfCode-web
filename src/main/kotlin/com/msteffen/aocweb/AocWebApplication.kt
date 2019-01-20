@@ -7,7 +7,7 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-@EnableConfigurationProperties(AocProperties::class)
+@EnableConfigurationProperties
 class AocWebApplication
 
 fun main(args: Array<String>) {

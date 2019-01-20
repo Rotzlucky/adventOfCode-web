@@ -27,7 +27,6 @@ repositories {
 }
 
 dependencies {
-    compile 'org.springframework.boot:spring-boot-starter-mustache'
     compile 'org.springframework.boot:spring-boot-starter-web'
     compile 'com.fasterxml.jackson.module:jackson-module-kotlin'
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
