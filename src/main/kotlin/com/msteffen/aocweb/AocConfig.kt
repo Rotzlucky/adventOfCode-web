@@ -10,8 +10,7 @@ import kotlin.collections.HashMap
 @Configuration
 class CorsConfigurer: WebMvcConfigurer {
     override fun addCorsMappings(registry: CorsRegistry) {
-        registry.addMapping("/api/puzzle").allowedOrigins("http://localhost:3000")
-        registry.addMapping("/api/i18n").allowedOrigins("http://localhost:3000")
+        registry.addMapping("/api/**").allowedOrigins("http://localhost:3000")
     }
 }
 
