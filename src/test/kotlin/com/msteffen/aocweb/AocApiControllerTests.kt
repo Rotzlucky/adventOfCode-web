@@ -66,14 +66,6 @@ class AocApiControllerTests(@Autowired val mockMvc: MockMvc) {
                 .andExpect(MockMvcResultMatchers.status().isNotFound)
     }
 
-    @Test
-    fun `translation route returns map of translations`() {
-        mockMvc.perform(MockMvcRequestBuilders.get("/api/i18n/").accept(MediaType.APPLICATION_JSON))
-                .andExpect(MockMvcResultMatchers.status().isOk)
-                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8))
-                .andExpect(MockMvcResultMatchers.jsonPath("\$.title").value("Advent of Code"))
-    }
-
     @AfterEach
     fun teardown() {
         Day.removeAllDays()

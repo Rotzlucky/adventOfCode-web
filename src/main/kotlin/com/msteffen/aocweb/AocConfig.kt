@@ -13,15 +13,3 @@ class CorsConfigurer: WebMvcConfigurer {
         registry.addMapping("/api/**").allowedOrigins("http://localhost:3000")
     }
 }
-
-class AocResourceBundleMessageSource: ResourceBundleMessageSource() {
-    fun getTranslationMap(locale: Locale): HashMap<String, String> {
-        val resourceBundle = getResourceBundle("message", locale)
-        val keySet = resourceBundle?.keySet()
-
-        val map = HashMap<String, String>()
-        keySet?.forEach { map[it] = resourceBundle.getString(it) }
-
-        return map
-    }
-}
