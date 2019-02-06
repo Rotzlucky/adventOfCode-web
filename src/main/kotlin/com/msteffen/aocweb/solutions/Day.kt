@@ -1,21 +1,11 @@
 package com.msteffen.aocweb.solutions
 
-import java.io.File
-
 abstract class Day(val number: Int, val title: String) {
 
-    fun getInputFileName(): String {
-        return "puzzle/year2018/Day$number.input"
-    }
+    var inputService = InputService()
 
-    fun getInputFile(): File {
-        return File(ClassLoader.getSystemResource(getInputFileName()).file)
-    }
-
-    fun getInputs(): ArrayList<String> {
-        val list = ArrayList<String>()
-        getInputFile().forEachLine {list.add(it)}
-        return list
+    fun getInputs(): List<String> {
+        return inputService.getInputs(number)
     }
 
     abstract fun solvePart1(): String

@@ -11,6 +11,7 @@ class Day1(number: Int = 1, title: String = "Chronal Calibration") : Day(number,
         val inputs = getInputs()
         val seenFrequencies = HashSet<Int>()
         var frequency = 0
+        seenFrequencies.add(frequency)
         do {
             for (input in inputs) {
                 frequency += input.toInt()

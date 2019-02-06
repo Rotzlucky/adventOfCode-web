@@ -2,6 +2,7 @@ package com.msteffen.aocweb
 
 import org.assertj.core.api.Assertions.assertThat
 import com.msteffen.aocweb.solutions.Day
+import com.msteffen.aocweb.solutions.InputService
 import com.msteffen.aocweb.solutions.year2018.Day1
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
@@ -31,25 +32,26 @@ class DayTest {
 
     @Test
     fun `Assert that the fileName is constructed with the number parameter`() {
-        val aDay = Day1(6, ArgumentMatchers.anyString())
-        assertThat(aDay.getInputFileName()).isEqualTo("puzzle/year2018/Day6.input")
+        val inputService = InputService()
 
-        val anotherDay = Day1(13, ArgumentMatchers.anyString())
-        assertThat(anotherDay.getInputFileName()).isEqualTo("puzzle/year2018/Day13.input")
+        assertThat(inputService.getInputFileName(6)).isEqualTo("puzzle/year2018/Day6.input")
+        assertThat(inputService.getInputFileName(13)).isEqualTo("puzzle/year2018/Day13.input")
     }
 
     @Test
     fun `Assert that a file for a fileName is returned`() {
-        val aDay = Day1(1, ArgumentMatchers.anyString())
-        assertThat(aDay.getInputFile()).exists()
-        assertThat(aDay.getInputFile()).isFile()
-        assertThat(aDay.getInputFile()).hasName("Day1.input")
+        val inputService = InputService()
+        val inputFile = inputService.getInputFile(1)
+        assertThat(inputFile).exists()
+        assertThat(inputFile).isFile()
+        assertThat(inputFile).hasName("Day1.input")
     }
 
     @Test
     fun `Assert that file content is put in Array`() {
         val aDay = Day1(1, ArgumentMatchers.anyString())
-        val inputFile = aDay.getInputFile()
+        val inputService = InputService()
+        val inputFile = inputService.getInputFile(1)
         var count = 0
         inputFile.forEachLine { count++ }
         assertThat(aDay.getInputs()).isNotEmpty
