@@ -3,12 +3,11 @@ package com.msteffen.aocweb.solutions.year2018
 import com.msteffen.aocweb.solutions.Day
 
 class Day1(number: Int = 1, title: String = "Chronal Calibration") : Day(number, title) {
-    override fun solvePart1(): String {
-        return getInputs().fold(0) { total, next -> total + next.toInt() }.toString()
+    override fun solvePart1(inputs: List<String>): String {
+        return inputs.fold(0) { total, next -> total + next.toInt() }.toString()
     }
 
-    override fun solvePart2(): String {
-        val inputs = getInputs()
+    override fun solvePart2(inputs: List<String>): String {
         val seenFrequencies = HashSet<Int>()
         var frequency = 0
         seenFrequencies.add(frequency)

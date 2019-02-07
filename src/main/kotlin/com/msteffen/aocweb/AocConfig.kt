@@ -1,11 +1,9 @@
 package com.msteffen.aocweb
 
+import org.springframework.context.annotation.ComponentScan
 import org.springframework.context.annotation.Configuration
-import org.springframework.context.support.ResourceBundleMessageSource
 import org.springframework.web.servlet.config.annotation.CorsRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer
-import java.util.Locale
-import kotlin.collections.HashMap
 
 @Configuration
 class CorsConfigurer: WebMvcConfigurer {
@@ -13,3 +11,7 @@ class CorsConfigurer: WebMvcConfigurer {
         registry.addMapping("/api/**").allowedOrigins("http://localhost:3000")
     }
 }
+
+@Configuration
+@ComponentScan("com.msteffen.aocweb.service")
+class AocConfig

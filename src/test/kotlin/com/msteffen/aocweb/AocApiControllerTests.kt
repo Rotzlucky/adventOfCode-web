@@ -1,8 +1,7 @@
 package com.msteffen.aocweb
 
-import com.msteffen.aocweb.solutions.Day
 import com.msteffen.aocweb.solutions.year2018.Day1
-import org.junit.jupiter.api.AfterEach
+import com.msteffen.aocweb.solutions.year2018.Day2
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 import org.springframework.beans.factory.annotation.Autowired
@@ -19,10 +18,8 @@ class AocApiControllerTests(@Autowired val mockMvc: MockMvc) {
 
     @Test
     fun `puzzle route returns list of Days`() {
-        val aDay = Day1(1, "Some title")
-        val anotherDay = Day1(1, "Another title")
-        Day.addDay(aDay)
-        Day.addDay(anotherDay)
+        val aDay = Day1()
+        val anotherDay = Day2()
         mockMvc.perform(MockMvcRequestBuilders.get("/api/puzzle/").accept(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk)
                 .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8))
@@ -34,8 +31,7 @@ class AocApiControllerTests(@Autowired val mockMvc: MockMvc) {
 
     @Test
     fun `concrete puzzle route returns concrete Day`() {
-        val aDay = Day1(1, "Some title")
-        Day.addDay(aDay)
+        val aDay = Day1()
         mockMvc.perform(MockMvcRequestBuilders.get("/api/puzzle/1").accept(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk)
                 .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8))
@@ -51,13 +47,11 @@ class AocApiControllerTests(@Autowired val mockMvc: MockMvc) {
 
     @Test
     fun `concrete solution route returns solutions`() {
-        val aDay = Day1(1, "Some title")
-        Day.addDay(aDay)
         mockMvc.perform(MockMvcRequestBuilders.get("/api/solution/1").accept(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk)
                 .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8))
-                .andExpect(MockMvcResultMatchers.jsonPath("\$.[0]").value(aDay.solvePart1()))
-                .andExpect(MockMvcResultMatchers.jsonPath("\$.[1]").value(aDay.solvePart2()))
+                .andExpect(MockMvcResultMatchers.jsonPath("\$.[0]").isString)
+                .andExpect(MockMvcResultMatchers.jsonPath("\$.[1]").isString)
     }
 
     @Test
@@ -65,10 +59,4 @@ class AocApiControllerTests(@Autowired val mockMvc: MockMvc) {
         mockMvc.perform(MockMvcRequestBuilders.get("/api/solution/30").accept(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isNotFound)
     }
-
-    @AfterEach
-    fun teardown() {
-        Day.removeAllDays()
-    }
-
 }
