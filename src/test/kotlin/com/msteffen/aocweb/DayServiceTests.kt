@@ -2,7 +2,7 @@ package com.msteffen.aocweb
 
 import com.msteffen.aocweb.service.DayServiceImpl
 import com.msteffen.aocweb.service.InputService
-import com.msteffen.aocweb.solutions.year2018.Day1
+import com.msteffen.aocweb.solutions.year2018.day1.Day1
 import com.nhaarman.mockito_kotlin.mock
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test

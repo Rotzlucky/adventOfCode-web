@@ -1,7 +1,7 @@
 package com.msteffen.aocweb
 
-import com.msteffen.aocweb.solutions.year2018.Day1
-import com.msteffen.aocweb.solutions.year2018.Day2
+import com.msteffen.aocweb.solutions.year2018.day1.Day1
+import com.msteffen.aocweb.solutions.year2018.day2.Day2
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 import org.springframework.beans.factory.annotation.Autowired

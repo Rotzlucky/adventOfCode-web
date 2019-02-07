@@ -1,4 +1,4 @@
-package com.msteffen.aocweb.solutions.year2018
+package com.msteffen.aocweb.solutions.year2018.day1
 
 import com.msteffen.aocweb.solutions.Day
 

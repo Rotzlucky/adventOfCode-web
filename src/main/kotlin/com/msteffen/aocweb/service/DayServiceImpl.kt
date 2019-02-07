@@ -1,8 +1,8 @@
 package com.msteffen.aocweb.service
 
 import com.msteffen.aocweb.solutions.Day
-import com.msteffen.aocweb.solutions.year2018.Day1
-import com.msteffen.aocweb.solutions.year2018.Day2
+import com.msteffen.aocweb.solutions.year2018.day1.Day1
+import com.msteffen.aocweb.solutions.year2018.day2.Day2
 import org.springframework.stereotype.Component
 
 @Component

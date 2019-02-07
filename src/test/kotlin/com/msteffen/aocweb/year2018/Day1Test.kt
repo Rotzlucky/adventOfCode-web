@@ -1,7 +1,7 @@
 package com.msteffen.aocweb.year2018
 
 import com.msteffen.aocweb.service.InputServiceImpl
-import com.msteffen.aocweb.solutions.year2018.Day1
+import com.msteffen.aocweb.solutions.year2018.day1.Day1
 import org.assertj.core.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
