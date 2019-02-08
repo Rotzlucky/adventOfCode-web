@@ -31,7 +31,7 @@ class Day2Test {
     fun `Assert Day2 of 2018 returns the correct solution for test input`() {
         val day2 = Day2()
 
-        var inputs = listOf(
+        val inputs = listOf(
                 "abcdef",
                 "bababc",
                 "abbcde",
@@ -40,7 +40,7 @@ class Day2Test {
                 "abcdee",
                 "ababab"
         )
-        Assertions.assertThat(day2.solvePart1(inputs)).isEqualTo("12")
+        assertThat(day2.solvePart1(inputs)).isEqualTo("12")
     }
 
     @Test
@@ -81,5 +81,20 @@ class Day2Test {
         val box2 = Box("ababab")
         assertFalse(box2.containsAnyLetterTwice())
         assertTrue(box2.containsAnyLetterThreefold())
+    }
+
+    @Test
+    fun `Assert that common characters between two Box IDs are calculated correctly`() {
+        assertThat(Box("abc").getCommonCharacters(Box("def"))).isEqualTo("")
+        assertThat(Box("abc").getCommonCharacters(Box("cba"))).isEqualTo("b")
+        assertThat(Box("abc").getCommonCharacters(Box("abd"))).isEqualTo("ab")
+        assertThat(Box("abcde").getCommonCharacters(Box("axcye"))).isEqualTo("ace")
+        assertThat(Box("fghij").getCommonCharacters(Box("fguij"))).isEqualTo("fgij")
+        assertThat(Box("skfjruwodkncrisdjflwiehjklslijfk").getCommonCharacters(Box("skfjruwodkncrisdjflwiehjklslijfk")))
+                .isEqualTo("skfjruwodkncrisdjflwiehjklslijfk")
+        assertThat(Box("skfjruwodkncrssdjflwiehjklslijfk").getCommonCharacters(Box("skfjruwodkncrisdjflwiehjklslijfk")))
+                .isEqualTo("skfjruwodkncrsdjflwiehjklslijfk")
+        assertThat(Box("skfjrudodkncrisdjflwiehfklslijfk").getCommonCharacters(Box("skfjruwodkncrisdjflwiehjklslijfk")))
+                .isEqualTo("skfjruodkncrisdjflwiehklslijfk")
     }
 }

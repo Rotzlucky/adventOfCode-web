@@ -11,6 +11,18 @@ class Day2(number: Int = 2, title: String = "Inventory Management System") : Day
     }
 
     override fun solvePart2(inputs: List<String>): String {
+        val boxes = ArrayList<Box>()
+        inputs.forEach { boxes += Box(it) }
+
+        boxes.forEach {
+            boxes.forEach {otherBox ->
+                val commonCharacters = it.getCommonCharacters(otherBox)
+                if (it.id.length - commonCharacters.length == 1) {
+                    return commonCharacters
+                }
+            }
+        }
+
         return ""
     }
 }

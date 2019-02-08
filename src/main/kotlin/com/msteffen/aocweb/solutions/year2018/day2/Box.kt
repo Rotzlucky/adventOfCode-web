@@ -1,6 +1,6 @@
 package com.msteffen.aocweb.solutions.year2018.day2
 
-class Box(id:String) {
+class Box(val id:String) {
 
     private val charMap = HashMap<Char, Int>()
 
@@ -16,5 +16,17 @@ class Box(id:String) {
 
     fun containsAnyLetterThreefold(): Boolean {
         return charMap.containsValue(3)
+    }
+
+    fun getCommonCharacters(other: Box): String {
+        var commonCharacters = ""
+
+        (0 until id.length).forEach {
+            if (id[it] == other.id[it]) {
+                commonCharacters += id[it]
+            }
+        }
+
+        return commonCharacters
     }
 }
